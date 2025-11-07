@@ -2,7 +2,7 @@
   "name": "week-3.1",
   "version": "1.0.0",
   "description": "",
-  "main": "index3.js",
+  "main": "index4.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
