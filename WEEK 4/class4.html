@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+<body>
+    
+    <input type="text" placeholder="Enter something">
+    <button id="addBtn">Add</button>
+
+    <div class="container"></div>
+
+    <script>
+        let container = document.querySelector(".container")
+        let addBtn = document.querySelector("#addBtn")
+        let input = document.querySelector("input")
+
+        addBtn.addEventListener("click", ()=>{
+            let inputValue = input.value;
+
+            let newLi = document.createElement("li") // <li> </li>
+
+            newLi.innerHTML = inputValue // <li> ${inputValue} </li>
+
+            container.appendChild(newLi)
+
+            input.value = ""
+
+            newLi.addEventListener("click", ()=>{
+                newLi.remove()
+            })
+            
+
+
+        })
+
+
+    </script>
+
+</body>
+</html>

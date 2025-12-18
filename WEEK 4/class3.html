@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click</title>
+</head>
+<body>
+    
+    <input type="text" placeholder="Enter something...">
+    <button>Click me</button>
+
+    <h2></h2>
+
+    <script>
+        let btn = document.querySelector("button")
+        let input = document.querySelector("input")
+        let heading = document.querySelector("h2")
+
+
+        btn.addEventListener("click", function(){
+            let inputValue = input.value;
+            
+            heading.innerHTML = inputValue
+
+            input.value = ""
+            
+        })
+
+    </script>
+
+</body>
+</html>

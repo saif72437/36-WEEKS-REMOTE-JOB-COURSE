@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">Container 1</div>
+    <div class="container">Container 2</div>
+    <div class="container">Container 3</div>
+    <div class="container">Container 4</div>
+    <div class="container">Container 5</div>
+    <div class="container">Container 6</div>
+    <div class="container">Container 7</div>
+    <div class="container">Container 8</div>
+    <div class="container">Container 9</div>
+    <div class="container">Container 10</div>
+
+    <script>
+        let allContainers = document.querySelectorAll(".container")
+        // [container1, container2, container3]
+
+        allContainers.forEach(singleContainer =>{
+            singleContainer.style.backgroundColor = "purple"
+            singleContainer.style.margin = "5px"
+            singleContainer.style.color = "white"
+            singleContainer.style.padding = "5px"
+        })
+        
+    </script>
+</body>
+</html>
