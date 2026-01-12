@@ -1,8 +1,11 @@
 import express from "express"
 import { CreateSchema, IDSchema } from "./types"
 import { Todo } from "./todo.model"
+import { connectToDB } from "./db"
 
 const app = express()
+
+connectToDB()
 
 app.get("/", (req, res)=>{
     res.send("hello guys")
