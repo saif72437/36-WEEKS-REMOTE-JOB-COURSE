@@ -1,11 +1,17 @@
 import express from "express"
-import { CreateSchema, IDSchema } from "./types"
-import { Todo } from "./todo.model"
-import { connectToDB } from "./db"
+import { CreateSchema, IDSchema } from "./types.js"
+import { Todo } from "./todo.model.js"
+import { connectToDB } from "./db.js"
+import cors from "cors"
+
 
 const app = express()
 
+
 connectToDB()
+
+app.use(express.json())
+app.use(cors())
 
 app.get("/", (req, res)=>{
     res.send("hello guys")
@@ -13,7 +19,11 @@ app.get("/", (req, res)=>{
 
 // todo create
 app.post("/create", async (req, res)=>{
+    console.log("REQUEST BODY:", req.body);
     const {success, data} = CreateSchema.safeParse(req.body);
+    
+    console.log(data, success);
+    
     if(!success){
         return res.status(411).json({
             mssg: "Invalid inputs"
@@ -38,7 +48,7 @@ app.post("/create", async (req, res)=>{
 // todo delete
 
 app.delete("/delete/:id", async (req, res)=>{
-    const {success, data} = IDSchema.safeParse(req.body)
+    const {success, data} = IDSchema.safeParse(req.params)
      if(!success){
         return res.status(411).json({
             mssg: "Invalid inputs"
@@ -56,7 +66,7 @@ app.delete("/delete/:id", async (req, res)=>{
 // todo update
 
 app.put("/update/:id", async (req, res)=>{
-    const {success, data} = IDSchema.safeParse(req.body)
+    const {success, data} = IDSchema.safeParse(req.params)
      if(!success){
         return res.status(411).json({
             mssg: "Invalid inputs"
@@ -81,7 +91,7 @@ app.put("/update/:id", async (req, res)=>{
 // todo get
 
 app.get("/todo/:id", async (req, res)=>{
- const {success, data} = IDSchema.safeParse(req.body)
+ const {success, data} = IDSchema.safeParse(req.params)
      if(!success){
         return res.status(411).json({
             mssg: "Invalid inputs"
@@ -100,7 +110,7 @@ app.get("/todo/:id", async (req, res)=>{
 })
 
 // todos
-app.post("/todos", async (req, res)=>{
+app.get("/todos", async (req, res)=>{
     const todos = await Todo.find()
     res.status(200).json({
         todos
