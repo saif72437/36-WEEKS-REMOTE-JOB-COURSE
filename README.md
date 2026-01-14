@@ -175,7 +175,7 @@ Each **project folder** represents a **real-world system**.
 ## ▶️ Getting Started
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/saif72437/36-WEEKS-REMOTE-JOB-COURSE.git
 cd 36-weeks-remote-job-course
 npm install
 ```
@@ -222,4 +222,6 @@ It is designed to be **hard, realistic, and demanding** — just like real remot
 
 If you finish this honestly, you will not be a beginner anymore.
 
-**Consistency > Motivation** 🚀
+**Consistency > Motivation** 
+
+**love you 3000**🫰🏻
